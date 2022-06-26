@@ -80,14 +80,15 @@ fun DetailScreen(navController: NavController, text: String?,flag:Int?) {
             }
 
             Spacer(modifier = Modifier.padding(16.dp))
-            Text("Valor $increase")
+            Text("Valor $increase",color = MaterialTheme.colors.onBackground)
+            fieldValue=DropDown2(cities, "Data Entry")
             Box(modifier = Modifier
                 .fillMaxWidth()
                 .padding(start=16.dp,end=16.dp) ){
                CustomTextField(value = fieldValue, placeHolder = "Data") {}
             }
+            Text("Valor $fieldValue", color = MaterialTheme.colors.onBackground)
 
-            DropDown(cities, "DropDown", "Data Entry") {}
 
 
 

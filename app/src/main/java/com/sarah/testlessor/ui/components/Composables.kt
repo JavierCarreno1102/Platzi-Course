@@ -70,7 +70,7 @@ fun CustomTextField(
 
     OutlinedTextField(
 
-        value =value,
+        value = value,
         onValueChange = onValueChange,
         textStyle = TextStyle(color = Color.Black),
         label = {
@@ -105,61 +105,112 @@ fun CustomTextField(
 }
 
 //------------------------textField-------------------------------------------------
+
+
 //------------------------DropDown-------------------------------------------------
+//@Composable
+//fun DropDown(
+//    options: List<String>,
+//    value: String,
+//    placeHolder: String,
+//    onChangeValue: (String) -> Unit
+//) {
+//    var expanded by remember { mutableStateOf(false) }
+//    var textFieldSize by remember { mutableStateOf(Size.Zero) }
+//
+//    var icon = Icons.Filled.ArrowDropDown
+//
+//    Column() {
+//        CustomTextField(
+//            value = value,
+//            placeHolder = placeHolder,
+//            onValueChange = onChangeValue,
+//            enable = false,
+//            trailingIcon = {
+//                Icon(
+//                    icon,
+//                    contentDescription = null,
+//                    modifier = Modifier.clickable {
+//                        expanded = !expanded
+//                    }, tint = Color.Red
+//                )
+//            },
+//            onGlobalposition = { coordinate ->
+//                textFieldSize = coordinate.size.toSize()
+//            }
+//        )
+//        DropdownMenu(
+//            expanded = expanded,
+//            onDismissRequest = { expanded = false },
+//            modifier = Modifier.width(with(LocalDensity.current) {
+//                textFieldSize.width.toDp()
+//            })
+//        ) {
+//            options.forEach {
+//                DropdownMenuItem(onClick = {
+//                    onChangeValue(it)
+//                    expanded = !expanded
+//
+//                }) {
+//                    Text(
+//                        it,
+//                        style = MaterialTheme.typography.h5,
+//                        color = Color.Red
+//                    )
+//                }
+//
+//            }
+//
+//
+//        }
+//
+//    }
+//
+//}
+
+
+//---------------------------------------------------------
+
+//------------------------DropDown-------------------------------------------------
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun DropDown(
+fun DropDown2(
     options: List<String>,
-    value: String,
     placeHolder: String,
-    onChangeValue: (String) -> Unit
-) {
+    ):String {
     var expanded by remember { mutableStateOf(false) }
-    var textFieldSize by remember { mutableStateOf(Size.Zero) }
 
-    var icon = Icons.Filled.ArrowDropDown
-
-    Column() {
+    var selectedOption by remember { mutableStateOf(options[0]) }
+    var seleccion by remember { mutableStateOf("") }
+    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = !expanded }) {
         CustomTextField(
-            value = value,
+            value = selectedOption,
+            onValueChange = {},
             placeHolder = placeHolder,
-            onValueChange = onChangeValue,
             enable = false,
-            trailingIcon = {
-                Icon(icon,
-                    contentDescription = null,
-                    modifier = Modifier.clickable {
-                        expanded = !expanded
-                    }, tint = Color.Red
-                )
-            },
-            onGlobalposition = { coordinate ->
-                textFieldSize = coordinate.size.toSize()
-            }
-        )
-        DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false },
-            modifier = Modifier.width(with(LocalDensity.current) {
-                textFieldSize.width.toDp()
-            })
-        ) {
-            options.forEach {
-                DropdownMenuItem(onClick = {
-                    onChangeValue(it)
-                    expanded = !expanded
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) }
 
+        )
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            options.forEach { selectedText ->
+
+                DropdownMenuItem(onClick = {
+                    selectedOption = selectedText
+                    seleccion=selectedText
+                    expanded = false
                 }) {
-                    Text(it,
-                        style = MaterialTheme.typography.h5,
-                        color = Color.Red)
+                    Text(text = selectedText, color = Color.Black)
+
+
                 }
 
+
             }
-
-
         }
-
     }
+
+    return seleccion
+
 
 }
 
@@ -183,8 +234,8 @@ val cities = listOf(
 fun ComponsablePreviews() {
     TestLessorTheme {
         //CustomButton(label = "TEST") {}
-        CustomTextField(value = "Test3", placeHolder = "data entry") {}
-
+        //CustomTextField(value = "Test3", placeHolder = "data entry") {}
+        DropDown2(options = cities,"")
 
 //        DropDown(cities, "", "Data Entry") {}
 
