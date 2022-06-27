@@ -87,7 +87,7 @@ fun DetailScreen(navController: NavController, text: String?,flag:Int?) {
                 .padding(start=16.dp,end=16.dp) ){
                CustomTextField(value = fieldValue, placeHolder = "Data") {}
             }
-            Text("Nuevo valor $fieldValue", color = MaterialTheme.colors.onBackground)
+            Text("Nuevo Con Mac $fieldValue", color = MaterialTheme.colors.onBackground)
 
 
 
