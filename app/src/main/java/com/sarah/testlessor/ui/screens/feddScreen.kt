@@ -29,7 +29,7 @@ fun FeedScreen(navController: NavController) {
         TopAppBar(backgroundColor = MaterialTheme.colors.secondary) {
             Spacer(modifier = Modifier.width(16.dp))
 
-            Text("Principal", color = Color.White, style = MaterialTheme.typography.h5)
+            Text("Principal Screen", color = Color.White, style = MaterialTheme.typography.h5)
 
 
         }
@@ -92,12 +92,11 @@ fun ShowTitle(text: String, color: Color) {
 
 }
 
-//@Preview(showBackground = true)
-////@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
-//@Composable
-//fun Preview() {
-////    TestLessorTheme {
-////        val navController= rememberNavController()
-////        FeedScreen(navController)
-////    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun PreviewFeed() {
+    TestLessorTheme {
+        val navController= rememberNavController()
+        FeedScreen(navController)
+    }
+}
