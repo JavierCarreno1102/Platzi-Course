@@ -72,12 +72,12 @@ fun CustomTextField(
 
         value = value,
         onValueChange = onValueChange,
-        textStyle = TextStyle(color = Color.Black),
+        textStyle = TextStyle(color = MaterialTheme.colors.onBackground),
         label = {
             Text(
                 text = placeHolder,
                 style = MaterialTheme.typography.caption,
-                color = Color.Red
+                color = MaterialTheme.colors.onBackground
             )
         },
         modifier = Modifier
