@@ -26,10 +26,11 @@ import com.sarah.testlessor.ui.theme.TestLessorTheme
 @Composable
 fun FeedScreen(navController: NavController) {
     Scaffold(topBar = {
-        TopAppBar() {
+        TopAppBar(backgroundColor = MaterialTheme.colors.secondary) {
             Spacer(modifier = Modifier.width(16.dp))
 
-            Text("Principal")
+            Text("Principal", color = Color.White, style = MaterialTheme.typography.h5)
+
 
         }
 

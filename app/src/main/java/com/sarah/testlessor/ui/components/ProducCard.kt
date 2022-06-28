@@ -125,7 +125,7 @@ fun ProducCard(product: Product,country: Country,selected:SelectionAction) {
                                     .padding(end = 10.dp),
                                 textAlign = TextAlign.End,
                                 style = MaterialTheme.typography.h4,
-                                color = MaterialTheme.colors.onBackground
+                                color = Color.White
 
                             )
                         }
