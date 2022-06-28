@@ -81,8 +81,7 @@ fun ProducCard(product: Product,country: Country,selected:SelectionAction) {
                 .clickable {
                     selected()
                 }
-                .size(480.dp)
-                .background(Color.Black),
+                .size(480.dp),
             elevation = 10.dp,
             shape = MaterialTheme.shapes.large
 
@@ -114,17 +113,17 @@ fun ProducCard(product: Product,country: Country,selected:SelectionAction) {
                                 painter = painterResource(id = country.getFlag()),
                                 contentDescription = null,
                                 modifier = Modifier
-                                    .size(50.dp, 50.dp)
-                                    .padding(start = 10.dp, bottom = 10.dp)
+                                    .size(60.dp, 60.dp)
+                                    .padding(start = 16.dp)
                             )
 
                             Text(
                                 "$${product.price} USD",
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(end = 10.dp),
+                                    .padding(end = 16.dp, bottom = 16.dp),
                                 textAlign = TextAlign.End,
-                                style = MaterialTheme.typography.h4,
+                                style = MaterialTheme.typography.h2,
                                 color = Color.White
 
                             )
@@ -140,7 +139,6 @@ fun ProducCard(product: Product,country: Country,selected:SelectionAction) {
 }
 
 @Preview(showBackground = true)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 fun ProducPreview() {
     Column() {

@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -51,7 +52,7 @@ fun BodyFeedScreen(navController: NavController) {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             item {
-                ShowTitle("Los Mejores Cafes ", MaterialTheme.colors.onBackground)
+                ShowTitle("Los Mejores Cafes \nde mi tienda", MaterialTheme.colors.onBackground)
             }
             items(countryList) { country ->
                 ProducCard(
@@ -86,18 +87,18 @@ fun ShowTitle(text: String, color: Color) {
         horizontalAlignment = Alignment.CenterHorizontally,
 
 
+
         ) {
-        Text(text, color = color, style = MaterialTheme.typography.h4)
+        Text(text, color = color, style = MaterialTheme.typography.h4, textAlign = TextAlign.Center)
     }
 
 }
 
-//@Preview(showBackground = true)
-////@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
-//@Composable
-//fun Preview() {
-////    TestLessorTheme {
-////        val navController= rememberNavController()
-////        FeedScreen(navController)
-////    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun Previews() {
+    TestLessorTheme {
+        val navController= rememberNavController()
+        FeedScreen(navController)
+    }
+}
